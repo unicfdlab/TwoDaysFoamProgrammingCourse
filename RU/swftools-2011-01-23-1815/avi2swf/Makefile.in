@@ -1,0 +1,41 @@
+top_builddir = ..
+srcdir = @srcdir@
+top_srcdir = @top_srcdir@
+include ../Makefile.common
+
+VIDEO_LIBS=@VIDEO_LIBS@
+VIDEO_CFLAGS=@VIDEO_CFLAGS@
+
+all: avi2swf$(E)
+
+videoreader_avifile.$(O): videoreader_avifile.cc videoreader_avifile.hh
+	$(CC) $(VIDEO_CFLAGS) $< -o $@
+
+videoreader_vfw.$(O): videoreader_vfw.cc videoreader_vfw.hh
+	$(CC) $(VIDEO_CFLAGS) $< -o $@
+
+avi2swf.$(O): avi2swf.cc videoreader_vfw.hh videoreader_avifile.hh
+	$(CC) $< -o $@
+
+v2swf.$(O): v2swf.c ../lib/q.h
+	$(C) $< -o $@
+
+avi2swf$(E): avi2swf.$(O) v2swf.$(O) videoreader_avifile.$(O) videoreader_vfw.$(O) ../lib/libbase$(A)
+	$(LL) avi2swf.$(O) v2swf.$(O) videoreader_avifile.$(O) videoreader_vfw.$(O) -o avi2swf$(E) ../lib/librfxswf$(A) ../lib/libbase$(A) $(LIBS) $(VIDEO_LIBS)
+	$(STRIP) avi2swf$(E)
+
+install:
+	$(mkinstalldirs) $(bindir)
+	$(mkinstalldirs) $(man1dir)
+	@file=avi2swf;$(INSTALL_BIN);$(INSTALL_MAN1)
+	
+uninstall:
+	@file=avi2swf;$(UNINSTALL_BIN);$(UNINSTALL_MAN1)
+
+clean: 
+	rm -f *.o *.obj *.lo *.a *.lib *.la avi2swf avi2swf.exe gmon.out
+
+doc:
+	perl ../parsedoc.pl avi2swf.doc
+
+.PHONY: all doc clean install uninstall

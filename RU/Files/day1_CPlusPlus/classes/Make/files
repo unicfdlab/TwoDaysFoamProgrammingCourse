@@ -1,0 +1,4 @@
+figShapes.C
+classesTut.C
+
+EXE = $(FOAM_USER_APPBIN)/classesTut

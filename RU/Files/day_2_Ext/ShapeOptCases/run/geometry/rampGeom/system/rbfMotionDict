@@ -1,0 +1,158 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.0                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+    class           dictionary;
+    object          rbfMotionDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// List of patches that the morpher is allowed to deform
+// If a patch is not on the list, all of its points remain static
+movingPatches
+(
+    bottomRamp
+);
+
+// Positions of control points
+controlPoints
+(
+    // Moving points
+
+    // Back plane
+    (  4  0.75  -0.1)
+    (  5  0.5   -0.1)
+    (  6  0.25  -0.1)
+    // Front plane
+    (  4  0.75   0.1)
+    (  5  0.5    0.1)
+    (  6  0.25   0.1)
+
+    // Box points
+
+    // Back plane
+    (  3   2   -0.1)
+    (  3   3   -0.1)
+    (  3   4   -0.1)
+    (  7   0   -0.1)
+    (  7   1   -0.1)
+    (  7   2   -0.1)
+    (  7   3   -0.1)
+    (  7   4   -0.1)
+    (  4   4   -0.1)
+    (  5   4   -0.1)
+    (  6   4   -0.1)
+    // Front plane
+    (  3   2    0.1)
+    (  3   3    0.1)
+    (  3   4    0.1)
+    (  7   0    0.1)
+    (  7   1    0.1)
+    (  7   2    0.1)
+    (  7   3    0.1)
+    (  7   4    0.1)
+    (  4   4    0.1)
+    (  5   4    0.1)
+    (  6   4    0.1)
+);
+
+
+// Motion in control points (min max)
+// Points are in the same order as above
+motionBounds
+(
+    // Moving points
+
+    // Back plane
+    (( -0.5  -0.35 0) ( 0.5   0.55 0))
+    (( -0.75 -0.5 0) ( 0.75  0.75 0))
+    (( -0.5  -0.45 0) ( 0.5   0.25 0))
+    // Front plane
+    (( -0.5  -0.35 0) ( 0.5   0.55 0))
+    (( -0.75 -0.5 0) ( 0.75  0.75 0))
+    (( -0.5  -0.45 0) ( 0.5   0.25 0))
+
+    // Box points
+
+    // Back plane
+    (( 0 0 0) (0 0 0))
+    (( 0 0 0) (0 0 0))
+    (( 0 0 0) (0 0 0))
+    (( 0 0 0) (0 0 0))
+    //
+    (( 0 0 0) (0 0 0))
+    (( 0 0 0) (0 0 0))
+    (( 0 0 0) (0 0 0))
+    (( 0 0 0) (0 0 0))
+    //
+    (( 0 0 0) (0 0 0))
+    (( 0 0 0) (0 0 0))
+    (( 0 0 0) (0 0 0))
+
+    // Front plane
+    (( 0 0 0) (0 0 0))
+    (( 0 0 0) (0 0 0))
+    (( 0 0 0) (0 0 0))
+    (( 0 0 0) (0 0 0))
+    //
+    (( 0 0 0) (0 0 0))
+    (( 0 0 0) (0 0 0))
+    (( 0 0 0) (0 0 0))
+    (( 0 0 0) (0 0 0))
+    //
+    (( 0 0 0) (0 0 0))
+    (( 0 0 0) (0 0 0))
+    (( 0 0 0) (0 0 0))
+);
+
+// Number of steps in illustration of mesh morphing
+nSteps 5;
+
+// RBF interpolation parameters
+interpolation
+{
+    // Choice of RBF function.  Leave as is
+    RBF  IMQB;
+
+    // Location of the focal point, inner and outer radius
+    // RBF motion is applied in full within the inner radies sphere
+    // around the focal point, and will be zero outside of the outer radius
+    // Between the two, the motion is linearly extinguished
+    focalPoint (5 0.5 0);
+    innerRadius 1;
+    outerRadius 3.5;
+
+    // When the deformation defined by the RBF motion needs to include
+    // solid body translation, set polynomials to on.  If only deformation
+    // is required, set polynomials to off.
+    polynomials off;
+
+    // Coefficients for different kinds of the RBF.  With the above choice of
+    // RBF (RBF  IMQB;), only IMQBCoeffs are active
+    TPSCoeffs
+    {
+        radius     5.0;
+    }
+    GaussCoeffs
+    {
+        radius        0.8;
+    }
+    IMQBCoeffs
+    {
+        // Stength function for IMQB RBF function
+        // Scales with the size of geometry, in [m]
+        radius       1;
+    }
+}
+
+
+// ************************************************************************* //

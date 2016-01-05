@@ -1,0 +1,3 @@
+rbfMorphMesh.C
+
+EXE = $(FOAM_APPBIN)/rbfMorphMesh

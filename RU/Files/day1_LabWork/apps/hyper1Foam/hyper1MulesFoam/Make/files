@@ -1,0 +1,4 @@
+hyper1MulesFoam.C
+
+EXE = $(FOAM_USER_APPBIN)/hyper1MulesFoam
+

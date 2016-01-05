@@ -1,0 +1,21 @@
+RBFMeshMorph/RBFMeshMorph.C
+
+flowModels/flowModel/flowModel.C
+flowModels/flowModel/newFlowModel.C
+flowModels/icoFlow/icoFlow.C
+flowModels/turbFlow/turbFlow.C
+
+objectives/objective/objective.C
+objectives/objective/newObjective.C
+objectives/minPressureDrop/minPressureDrop.C
+objectives/minTotalPressureDrop/minTotalPressureDrop.C
+objectives/minPatchRange/minPatchRange.C
+objectives/minPatchForce/minPatchForce.C
+objectives/combinedObjective/combinedObjective.C
+
+objectiveFunctions/objectiveFunction/objectiveFunction.C
+objectiveFunctions/objectiveFunction/newObjectiveFunction.C
+objectiveFunctions/paraboloidSin/paraboloidSin.C
+objectiveFunctions/shapeObjectiveFunction/shapeObjectiveFunction.C
+
+LIB = $(FOAM_LIBBIN)/libshapeOptimisation

@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0069)http://openfoamwiki.net/index.php/OpenFOAM_guide/Matrices_in_OpenFOAM -->
+<html lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>OpenFOAM guide/Matrices in OpenFOAM - OpenFOAMWiki</title>
+
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="stylesheet" media="screen, projection" href="http://openfoamwiki.net/extensions/HeaderTabs/skins/combined-min.css">
+<link rel="shortcut icon" href="http://openfoamwiki.net/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://openfoamwiki.net/opensearch_desc.php" title="OpenFOAMWiki (en)">
+<link title="Creative Commons" type="application/rdf+xml" href="http://openfoamwiki.net/index.php?title=OpenFOAM_guide/Matrices_in_OpenFOAM&action=creativecommons" rel="meta">
+<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html">
+<link rel="alternate" type="application/atom+xml" title="OpenFOAMWiki Atom feed" href="http://openfoamwiki.net/index.php?title=Special:RecentChanges&feed=atom">
+<link rel="stylesheet" href="http://openfoamwiki.net/skins/common/shared.css?270" media="screen">
+<link rel="stylesheet" href="http://openfoamwiki.net/skins/common/commonPrint.css?270" media="print">
+<link rel="stylesheet" href="http://openfoamwiki.net/skins/monobook/main.css?270" media="screen">
+<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?270" media="screen" /><![endif]-->
+<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?270" media="screen" /><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?270" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?270" media="screen" /><![endif]-->
+<link rel="stylesheet" href="http://openfoamwiki.net/index.php?title=MediaWiki:Common.css&usemsgcache=yes&ctype=text%2Fcss&smaxage=18000&action=raw&maxage=18000">
+<link rel="stylesheet" href="http://openfoamwiki.net/index.php?title=MediaWiki:Print.css&usemsgcache=yes&ctype=text%2Fcss&smaxage=18000&action=raw&maxage=18000" media="print">
+<link rel="stylesheet" href="http://openfoamwiki.net/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&ctype=text%2Fcss&smaxage=18000&action=raw&maxage=18000">
+<link rel="stylesheet" href="http://openfoamwiki.net/index.php?title=-&action=raw&maxage=18000&gen=css">
+<script>
+var skin="monobook",
+stylepath="/skins",
+wgUrlProtocols="http\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/index.php/$1",
+wgScriptPath="",
+wgScriptExtension=".php",
+wgScript="/index.php",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="http://openfoamwiki.net",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="OpenFOAM_guide/Matrices_in_OpenFOAM",
+wgTitle="OpenFOAM guide/Matrices in OpenFOAM",
+wgAction="view",
+wgArticleId=1945,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=9964,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "OpenFOAMWiki", "5": "OpenFOAMWiki talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk", "102": "Property", "103": "Property talk", "104": "Type", "105": "Type talk", "106": "Form", "107": "Form talk", "108": "Concept", "109": "Concept talk", "170": "Filter", "171": "Filter talk", "274": "Widget", "275": "Widget talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "openfoamwiki": 4, "openfoamwiki_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "property": 102, "property_talk": 103, "type": 104, "type_talk": 105, "form": 106, "form_talk": 107, "concept": 108, "concept_talk": 109, "filter": 170, "filter_talk": 171, "widget": 274, "widget_talk": 275, "image": 6, "image_talk": 7},
+wgSiteName="OpenFOAMWiki",
+wgCategories=["OpenFOAM overview"],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/wikibits.js"></script>
+<script src="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/ajax.js"></script>
+<script type="text/javascript" src="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/combined-history-min.js"></script>
+<script src="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/index.php"></script>
+
+		<link rel="alternate" type="application/rdf+xml" title="OpenFOAM guide/Matrices in OpenFOAM" href="http://openfoamwiki.net/index.php?title=Special:ExportRDF/OpenFOAM_guide/Matrices_in_OpenFOAM&xmlmime=rdf">
+</head>
+<body class="mediawiki ltr ns-0 ns-subject page-OpenFOAM_guide_Matrices_in_OpenFOAM skin-monobook">
+<div id="globalWrapper">
+<div id="column-content"><div id="content">
+	<a id="top"></a>
+	
+	<h1 id="firstHeading" class="firstHeading">OpenFOAM guide/Matrices in OpenFOAM</h1>
+	<div id="bodyContent">
+		<h3 id="siteSub">From OpenFOAMWiki</h3>
+		<div id="contentSub"></div>
+		<div id="jump-to-nav">Jump to: <a href="http://openfoamwiki.net/index.php/OpenFOAM_guide/Matrices_in_OpenFOAM#column-one">navigation</a>, <a href="http://openfoamwiki.net/index.php/OpenFOAM_guide/Matrices_in_OpenFOAM#searchInput">search</a></div>
+		<!-- start content -->
+<p>Linear equations resulting from the <a href="http://openfoamwiki.net/index.php/Discretization" title="Discretization" class="mw-redirect">discretization</a> method are solved in <a href="http://openfoamwiki.net/index.php/OpenFOAM" title="OpenFOAM">OpenFOAM</a> using matrix methods.  <a href="http://openfoamwiki.net/index.php/OpenFOAM" title="OpenFOAM">OpenFOAM</a> has a specialized strategy for handling these matrices.
+</p>
+<table id="toc" class="toc"><tbody><tr><td><div id="toctitle"><h2>Contents</h2> <span class="toctoggle">[<a id="togglelink" class="internal" href="javascript:toggleToc()">hide</a>]</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="http://openfoamwiki.net/index.php/OpenFOAM_guide/Matrices_in_OpenFOAM#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="http://openfoamwiki.net/index.php/OpenFOAM_guide/Matrices_in_OpenFOAM#lduMatrix"><span class="tocnumber">2</span> <span class="toctext">lduMatrix</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="http://openfoamwiki.net/index.php/OpenFOAM_guide/Matrices_in_OpenFOAM#Diagonals"><span class="tocnumber">2.1</span> <span class="toctext">Diagonals</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="http://openfoamwiki.net/index.php/OpenFOAM_guide/Matrices_in_OpenFOAM#Upper_and_lower_triangles"><span class="tocnumber">2.2</span> <span class="toctext">Upper and lower triangles</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="http://openfoamwiki.net/index.php/OpenFOAM_guide/Matrices_in_OpenFOAM#Diagonal.2C_symmetric.2C_and_asymmetric_matrices"><span class="tocnumber">2.3</span> <span class="toctext">Diagonal, symmetric, and asymmetric matrices</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="http://openfoamwiki.net/index.php/OpenFOAM_guide/Matrices_in_OpenFOAM#OpenFOAM_code_example"><span class="tocnumber">2.4</span> <span class="toctext">OpenFOAM code example</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="http://openfoamwiki.net/index.php/OpenFOAM_guide/Matrices_in_OpenFOAM#lduAddressing"><span class="tocnumber">3</span> <span class="toctext">lduAddressing</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="http://openfoamwiki.net/index.php/OpenFOAM_guide/Matrices_in_OpenFOAM#When_do_you_need_it.3F"><span class="tocnumber">3.1</span> <span class="toctext">When do you need it?</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="http://openfoamwiki.net/index.php/OpenFOAM_guide/Matrices_in_OpenFOAM#How_do_you_use_it.3F"><span class="tocnumber">3.2</span> <span class="toctext">How do you use it?</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="http://openfoamwiki.net/index.php/OpenFOAM_guide/Matrices_in_OpenFOAM#Example"><span class="tocnumber">3.3</span> <span class="toctext">Example</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="http://openfoamwiki.net/index.php/OpenFOAM_guide/Matrices_in_OpenFOAM#fvMatrix"><span class="tocnumber">4</span> <span class="toctext">fvMatrix</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="http://openfoamwiki.net/index.php/OpenFOAM_guide/Matrices_in_OpenFOAM#Notes"><span class="tocnumber">5</span> <span class="toctext">Notes</span></a></li>
+</ul>
+</td></tr></tbody></table><script>if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<h2> <span class="mw-headline" id="Overview">1  Overview </span></h2>
+<p>The <a href="http://openfoamwiki.net/index.php/Discretization" title="Discretization" class="mw-redirect">discretization</a> process results in the equation:
+</p><p><img class="tex" alt="\mathbf{A} \boldsymbol \Psi = \mathbf B" src="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/aee48e44af17c571c60750af0d060cd4.png">
+</p><p>Where:
+</p>
+<ul><li> <b>A</b> is the discretization matrix, which holds the <a href="http://openfoamwiki.net/index.php/Matrix_coefficients" title="Matrix coefficients" class="mw-redirect">matrix coefficients</a>;
+</li><li> <img class="tex" alt="\boldsymbol \Psi" src="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/45148a8034dde74b536f3df6ad562130.png"> is the vector array of variables being solved for; and
+</li><li> <b>B</b> is the discretization source term.
+</li></ul>
+<p>The <b>A</b> component is an <i>N</i> x <i>N</i> square matrix, where <i>N</i> is the number of equations produced by the <a href="http://openfoamwiki.net/index.php/Discretization" title="Discretization" class="mw-redirect">discretization</a> process.  <a href="http://openfoamwiki.net/index.php/OpenFOAM" title="OpenFOAM">OpenFOAM</a> has developed a specialized strategy to handle this matrix.  Important components of this strategy include:
+</p>
+<ul><li> lduMatrix (lower - diagonal - upper - matrix storage class); and
+</li><li> lduAddressing (an indexing class);
+</li><li> fvMatrix (contains components specific to the <a href="http://openfoamwiki.net/index.php/Finite_volume_method" title="Finite volume method" class="mw-redirect">finite volume method</a>).
+</li></ul>
+<h2> <span class="mw-headline" id="lduMatrix">2  lduMatrix </span></h2>
+<p>The lduMatrix class stores the <a href="http://openfoamwiki.net/index.php/Matrix_coefficients" title="Matrix coefficients" class="mw-redirect">matrix coefficients</a> in three arrays:
+</p>
+<pre>scalarField *lowerPtr_;
+scalarField *diagPtr_;
+scalarField *upperPtr_;
+</pre>
+<p>These arrays are Fields that contain all the non-zero entries in the <a href="http://openfoamwiki.net/index.php/Matrix_coefficients" title="Matrix coefficients" class="mw-redirect">coefficient matrix</a>.
+</p>
+<h3> <span class="mw-headline" id="Diagonals">2.1  Diagonals </span></h3>
+<p>Every cell has one and only one diagonal coefficient, none of which are zero.  Therefore the diagonal list contains <i>N</i> values, where <i>N</i> is the number of cells in the mesh.  These are denoted:
+</p>
+<ul><li> As <a href="http://openfoamwiki.net/index.php/Discretization_coefficients" title="Discretization coefficients" class="mw-redirect">discretization coefficients</a>, <img class="tex" alt="A_p \neq 0\,\!" src="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/72b74166a2c2229ab3e93fc305fcae59.png">; or
+</li><li> As <a href="http://openfoamwiki.net/index.php/Matrix_coefficients" title="Matrix coefficients" class="mw-redirect">matrix coefficients</a>, <img class="tex" alt="A_{ii} \neq 0\,\!" src="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/13ab5364611251837139216971805ecc.png">.
+</li></ul>
+<h3> <span class="mw-headline" id="Upper_and_lower_triangles">2.2  Upper and lower triangles </span></h3>
+<p>The upper and lower triangles have (<i>N </i>- 1)<i>N</i> possible values, however most are zero.  The non-zero values correspond to cell-pairs that influence one another.  <a href="http://openfoamwiki.net/index.php/OpenFOAM" title="OpenFOAM">OpenFOAM</a> uses a small computational molecule, therefore only adjacent cells influence one another.  In other words, there are two non-zero coefficients for every <i>internal face</i> in the mesh: one that appears in the lower triangle; and one that appears in the upper triangle.
+</p><p>For instance, given a simple 3 x 3 mesh: 
+</p>
+<table class="wikitable" border="1">
+
+<tbody><tr>
+<td>  -1- </td><td> -2- </td><td> -3-
+</td></tr>
+<tr>
+<td>  -6- </td><td> -5- </td><td> -4-
+</td></tr>
+<tr>
+<td>  -7- </td><td> -8- </td><td> -9-
+</td></tr></tbody></table>
+<p>The non-zero coefficients for <a href="http://openfoamwiki.net/index.php/OpenFOAM" title="OpenFOAM">OpenFOAM</a> would be:
+</p>
+<table class="wikitable" border="1">
+<caption> Non-zero coefficients
+</caption><tbody><tr>
+<th> i </th><th> -1- </th><th> -2- </th><th> -3- </th><th> -4- </th><th> -5- </th><th> -6- </th><th> -7- </th><th> -8- </th><th> -9-
+</th></tr>
+<tr align="center">
+<th> -1-
+</th><td> X </td><td> N </td><td> </td><td> </td><td> </td><td> N </td><td> </td><td> </td><td>
+</td></tr>
+<tr align="center">
+<th> -2-
+</th><td> O </td><td> X </td><td> N </td><td> </td><td> N </td><td> </td><td> </td><td> </td><td>
+</td></tr>
+<tr align="center">
+<th> -3-
+</th><td> </td><td> O </td><td> X </td><td> N </td><td> </td><td> </td><td> </td><td> </td><td>
+</td></tr>
+<tr align="center">
+<th> -4-
+</th><td> </td><td> </td><td> O </td><td> X </td><td> N </td><td> </td><td> </td><td> </td><td> N
+</td></tr>
+<tr align="center">
+<th> -5-
+</th><td> </td><td> O </td><td> </td><td> O </td><td> X </td><td> N </td><td> </td><td> N </td><td>
+</td></tr>
+<tr align="center">
+<th> -6-
+</th><td> O </td><td> </td><td> </td><td> </td><td> O </td><td> X </td><td> N </td><td> </td><td>
+</td></tr>
+<tr align="center">
+<th> -7-
+</th><td> </td><td> </td><td> </td><td> </td><td> </td><td> O </td><td> X </td><td> N </td><td>
+</td></tr>
+<tr align="center">
+<th> -8-
+</th><td> </td><td> </td><td> </td><td> </td><td> O </td><td> </td><td> O </td><td> X </td><td> N
+</td></tr>
+<tr align="center">
+<th> -9-
+</th><td> </td><td> </td><td> </td><td> O </td><td> </td><td> </td><td> </td><td> O </td><td> X
+</td></tr></tbody></table>
+<p>Some mathematical operations require distinguishing between the two coefficients as they are sometimes opposite in sign (for instance when fluxes are involved).  <a href="http://openfoamwiki.net/index.php/OpenFOAM" title="OpenFOAM">OpenFOAM</a>'s mesh design anticipated this requirement, which is why every face has an <i>owner</i> cell and a <i>neighbour</i> cell.  <i>Owner</i>, <i>neighbour</i> and <i>diagonal</i> coefficients are defined as:
+</p><p><img class="tex" alt="
+A_{ij} =
+\begin{cases}
+\text{owner}, &amp; i &gt; j \\
+\text{diagonal}, &amp; i = j \\
+\text{neighbour}, &amp; i &lt; j
+\end{cases}
+" src="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/e3831b0661276c84dd3202e6393d16d5.png">
+</p><p>Where:
+</p>
+<ul><li> <i>i</i> is the matrix row number (corresponds to cell index); and
+</li><li> <i>j</i> is the matrix column number (corresponds to cell index).
+</li></ul>
+<p>With this definition, the <i>lower</i> triangle has the <i>owner</i> coefficients; and the <i>upper</i> triangle has the <i>neighbour</i> coefficients.  They are denoted:
+</p>
+<ul><li> As <a href="http://openfoamwiki.net/index.php/Discretization_coefficients" title="Discretization coefficients" class="mw-redirect">discretization coefficients</a>, <img class="tex" alt="A_{r,i}\,\!" src="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/820ab429c512020b07d326d405d2b1f8.png">, where <i>r</i> indicates "related cells"<sup id="cite_ref-0" class="reference"><a href="http://openfoamwiki.net/index.php/OpenFOAM_guide/Matrices_in_OpenFOAM#cite_note-0">[1]</a></sup>;
+</li><li> As <a href="http://openfoamwiki.net/index.php/Matrix_coefficients" title="Matrix coefficients" class="mw-redirect">matrix coefficients</a>:
+<ul><li> Owner coefficients are: <img class="tex" alt="\left \lbrack A_{ij}\right \rbrack_{i&gt;j} = A_o\,\!" src="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/b86d47320c86b98aa7d56f856a5bb98e.png">; and
+</li><li> Neighbour coefficients are: <img class="tex" alt="\left \lbrack A_{ij}\right \rbrack_{i&lt;j} = A_n\,\!" src="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/97a176130ed2f3ef61b465571ac53137.png">.
+</li></ul>
+</li></ul>
+<p>With this consistently applied across the mesh, a direction for positive surface-normal vectors is defined: a positive surface-normal vector (such as fluxes) points away from the <i>owner</i> cell, and towards the <i>neighbour</i> cell.
+</p>
+<h3> <span class="mw-headline" id="Diagonal.2C_symmetric.2C_and_asymmetric_matrices">2.3  Diagonal, symmetric, and asymmetric matrices </span></h3>
+<p>It is mandatory to define the diagonal; the others are not required.  If only one of the lower or upper triangles are defined, the matrix is assumed to be symmetric.  If both are defined, it will assume the matrix is asymmetric, even if they are equal.
+</p>
+<table class="wikitable" border="1">
+
+<tbody><tr>
+<th>  lowerPtr </th><th>  diagPtr </th><th>  diagPtr </th><th>  Result
+</th></tr>
+<tr align="center">
+<td>  Yes/No </td><td> No </td><td> Yes/No </td><td> Invalid matrix - error thrown
+</td></tr>
+<tr align="center">
+<td>  No </td><td> Yes </td><td> No </td><td> Diagonal matrix
+</td></tr>
+<tr align="center">
+<td>  Yes </td><td> Yes </td><td> No </td><td> Symmetric matrix
+</td></tr>
+<tr align="center">
+<td>  No </td><td> Yes </td><td> Yes </td><td> Symmetric matrix
+</td></tr>
+<tr align="center">
+<td>  Yes </td><td> Yes </td><td> Yes </td><td> Asymmetric matrix
+</td></tr></tbody></table>
+<dl><dd><b>Caution:</b> Accessing the opposite pointer without a <tt>const</tt> modifier will convert the matrix to an asymmetric matrix.  To modify the off-diagonal of a symmetric matrix, first test which pointer is active using <tt>hasUpper()</tt> and <tt>hasLower()</tt>.
+</dd></dl>
+<h3> <span class="mw-headline" id="OpenFOAM_code_example">2.4  OpenFOAM code example </span></h3>
+<p>For example, in calculating the diffusion of a quantity <img class="tex" alt="\phi\,\!" src="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/bfd070bbf4b8539e9b3af50740384bf6.png">, the governing equation is:
+</p><p><img class="tex" alt="\boldsymbol \nabla \bullet \Gamma \boldsymbol \nabla \mathbf U = 0" src="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/afd757d3515412a31a5c99074f236e9b.png">
+</p><p>This is the Laplacian, which is calculated in the <a href="http://openfoamwiki.net/index.php/Finite_volume_method" title="Finite volume method" class="mw-redirect">finite volume method</a> using fvm::laplacian.  The <a href="http://openfoamwiki.net/index.php/Discretization_coefficients" title="Discretization coefficients" class="mw-redirect">discretization coefficients</a> are:
+</p><p><img class="tex" alt="A_r = - \frac{\Gamma S_f}{\delta}" src="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/11d5d97ef4c94e5851bbb1f25598a667.png">
+</p><p><img class="tex" alt="A_p = \sum\limits_r A_r" src="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/8beab0876e6d830235b2aee9cf51a8b5.png">
+</p><p>To implement this in <a href="http://openfoamwiki.net/index.php/OpenFOAM" title="OpenFOAM">OpenFOAM</a>:
+</p>
+<pre>GeometricField&lt;scalar, fvsPatchField, surfaceMesh&gt; gammaMagSf ( gamma*mesh.magSf() );
+fvMatrix&lt;Type&gt;&amp; fvm;
+fvm.upper() = <a href="http://openfoamwiki.net/index.php/SurfaceInterpolation;;deltaCoeffs" title="SurfaceInterpolation;;deltaCoeffs" class="mw-redirect">deltaCoeffs</a>.internalField() * gamma*mesh.magSf().internalField();
+fvm.<a href="http://openfoamwiki.net/index.php/LduMatrix;;negSumDiag" title="LduMatrix;;negSumDiag" class="mw-redirect">negSumDiag</a>();
+</pre>
+<dl><dd><b>Note:</b>
+<ul><li><tt>fvm.lower</tt> is never mentioned - this is because it is equal to <tt>fvm.upper</tt> and a symmetric matrix is being created.
+</li><li><tt>fvm.upper</tt> is opposite in sign to <span class="texhtml"><i>A</i><sub><i>r</i></sub></span> above - this is because <tt>fvm.lower</tt> are <a href="http://openfoamwiki.net/index.php/Matrix_coefficients" title="Matrix coefficients" class="mw-redirect">matrix coefficients</a>, whereas <span class="texhtml"><i>A</i><sub><i>r</i></sub></span> are <a href="http://openfoamwiki.net/index.php/Discretization_coefficients" title="Discretization coefficients" class="mw-redirect">discretization coefficients</a>.
+</li></ul>
+</dd></dl>
+<h2> <span class="mw-headline" id="lduAddressing">3  lduAddressing </span></h2>
+<p>The lower, diagonal and upper coefficients are all scalarFields (basically a list), but they are indexed differently.  The diagonal coefficients are indexed by <i>cell index</i>; whereas the upper and lower triangles are indexed by <i>face index</i>.  In order to get the indices to match, an addressing array is provided for the lower and upper triangles to translate their <i>face index</i> into a corresponding <i>cell index</i>.  This addressing array is called an <i>lduAddressing</i> array.
+</p>
+<h3> <span class="mw-headline" id="When_do_you_need_it.3F">3.1  When do you need it? </span></h3>
+<p><i>lduAddressing</i> is needed anytime you need to perform an operation on all rows of an <tt>lduMatrix</tt> that involves both <i>diagonal</i> and <i>off-diagonal</i> coefficients.
+</p>
+<h3> <span class="mw-headline" id="How_do_you_use_it.3F">3.2  How do you use it? </span></h3>
+<p>To use <i>lduAddressing</i>:
+</p>
+<ul><li> separate operations involving the lower triangle from operations involving the upper triangle;
+</li><li> loop over all the faces in the mesh;
+</li><li> upper and lower triangle coefficients use the loop index - e.g. <tt>upper[facei] = ...</tt>
+</li><li> diagonal coefficients use the lduAddressing coefficient of the face index:
+<ul><li> <tt>diag[l[facei]] -= lower[facei]</tt>, where <tt>l</tt> is the <i>lduAddressing</i> for the lower triangle; and
+</li><li> <tt>diag[u[facei]] -= upper[facei]</tt>, where <tt>u</tt> is the <i>lduAddressing</i> for the upper triangle.
+</li></ul>
+</li></ul>
+<h3> <span class="mw-headline" id="Example">3.3  Example </span></h3>
+<p>For example, the <tt><a href="http://openfoamwiki.net/index.php/LduMatrix;;negSumDiag" title="LduMatrix;;negSumDiag" class="mw-redirect">negSumDiag</a></tt> operation is frequently required.  This is where the diagonal is the negative sum of its neighbours:
+</p><p><img class="tex" alt="A_p = -\sum\limits_r A_r" src="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/9952aaeee74fa53df173a993e7bebb5e.png">
+</p><p>The guts of its code is:
+</p>
+<pre>for (register label face=0; face&lt;l.size(); face++)
+{
+    Diag[l[face]] -= Lower[face];
+    Diag[u[face]] -= Upper[face];
+}
+</pre>
+<p>Where:
+</p>
+<ul><li> <tt>Diag</tt> is the diagonal coefficient;
+</li><li> <tt>l</tt> is the <i>lduAddressing</i> for the lower triangle;
+</li><li> <tt>u</tt> is the <i>lduAddressing</i> for the upper triangle;
+</li><li> <tt>Lower</tt> is the lower triangle; and
+</li><li> <tt>Upper</tt> is the upper triangle.
+</li></ul>
+<h2> <span class="mw-headline" id="fvMatrix">4  fvMatrix </span></h2>
+<p>Since <a href="http://openfoamwiki.net/index.php/OpenFOAM" title="OpenFOAM">OpenFOAM</a> implements multiple numerical strategies such as finite difference, finite area, finite element, and so on, everything that is specific to any one of these strategies is stripped out of the base class lduMatrix.  This facilitates code reuse.
+</p><p>fvMatrix is the finite volume extension of lduMatrix.  It includes the source, <b>B</b>, as well as a reference to the field, <img class="tex" alt="\boldsymbol \Psi" src="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/45148a8034dde74b536f3df6ad562130.png"> from <img class="tex" alt="\mathbf A \boldsymbol \Psi = \mathbf B" src="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/fcc79d63d9e3addb713d11910f764dd6.png">.  It handles what happens on the boundaries, and also implements specific operations that occur frequently in finite volume algorithms, such as <a href="http://openfoamwiki.net/index.php/FvMatrix;;H" title="FvMatrix;;H" class="mw-redirect">fvMatrix;;H</a>.
+</p>
+<h2> <span class="mw-headline" id="Notes">5  Notes </span></h2>
+<ol class="references"><li id="cite_note-0"><a href="http://openfoamwiki.net/index.php/OpenFOAM_guide/Matrices_in_OpenFOAM#cite_ref-0">↑</a> What I'm calling <i>related cells</i> is conventionally called <i>neighbours</i>.  But <a href="http://openfoamwiki.net/index.php/OpenFOAM" title="OpenFOAM">OpenFOAM</a> has a different meaning for <i>neighbours</i>, so the term <i>related cells</i> is used.</li></ol>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 222/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key wikidb-openfoam:pcache:idhash:1945-0!1!0!1!en!2!edit=0 and timestamp 20110706065235 -->
+<div class="printfooter">
+Retrieved from "<a href="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki.html">http://openfoamwiki.net/index.php/OpenFOAM_guide/Matrices_in_OpenFOAM</a>"</div>
+		<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks"><a href="http://openfoamwiki.net/index.php/Special:Categories" title="Special:Categories">Category</a>: <span dir="ltr"><a href="http://openfoamwiki.net/index.php/Category:OpenFOAM_overview" title="Category:OpenFOAM overview">OpenFOAM overview</a></span></div></div>		<!-- end content -->
+				<div class="visualClear"></div>
+	</div>
+</div></div>
+<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki.html" title="View the content page [ctrl-alt-c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="http://openfoamwiki.net/index.php?title=Talk:OpenFOAM_guide/Matrices_in_OpenFOAM&action=edit&redlink=1" title="Discussion about the content page [ctrl-alt-t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="http://openfoamwiki.net/index.php?title=OpenFOAM_guide/Matrices_in_OpenFOAM&action=edit" title="This page is protected.
+You can view its source [ctrl-alt-e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="http://openfoamwiki.net/index.php?title=OpenFOAM_guide/Matrices_in_OpenFOAM&action=history" title="Past revisions of this page [ctrl-alt-h]" accesskey="h">History</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="http://openfoamwiki.net/index.php?title=Special:UserLogin&returnto=OpenFOAM_guide/Matrices_in_OpenFOAM" title="You are encouraged to log in; however, it is not mandatory [ctrl-alt-o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/skins/common/images/openfoamwiki.png);" href="http://openfoamwiki.net/index.php/Main_Page" title="Visit the main page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class="generated-sidebar portlet" id="p-navigation">
+		<h5>Navigation</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-mainpage-description"><a href="http://openfoamwiki.net/index.php/Main_Page" title="Visit the main page [ctrl-alt-z]" accesskey="z">Main page</a></li>
+				<li id="n-portal"><a href="http://openfoamwiki.net/index.php/OpenFOAMWiki:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-currentevents"><a href="http://openfoamwiki.net/index.php/Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-recentchanges"><a href="http://openfoamwiki.net/index.php/Special:RecentChanges" title="The list of recent changes in the wiki [ctrl-alt-r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="http://openfoamwiki.net/index.php/Special:Random" title="Load a random page [ctrl-alt-x]" accesskey="x">Random page</a></li>
+				<li id="n-FAQ"><a href="http://openfoamwiki.net/index.php/Main_FAQ">FAQ</a></li>
+				<li id="n-Article-Categories"><a href="http://openfoamwiki.net/index.php/Special:Categories">Article Categories</a></li>
+				<li id="n-help"><a href="http://openfoamwiki.net/index.php/Help:Contents" title="The place to find out">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="http://openfoamwiki.net/index.php" id="searchform">
+				<input type="hidden" name="title" value="Special:Search">
+				<input id="searchInput" title="Search OpenFOAMWiki" accesskey="f" type="search" name="search">
+				<input type="submit" name="go" class="searchButton" id="searchGoButton" value="Go" title="Go to a page with this exact name if exists">&nbsp;
+				<input type="submit" name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text">
+			</form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="http://openfoamwiki.net/index.php/Special:WhatLinksHere/OpenFOAM_guide/Matrices_in_OpenFOAM" title="List of all wiki pages that link here [ctrl-alt-j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="http://openfoamwiki.net/index.php/Special:RecentChangesLinked/OpenFOAM_guide/Matrices_in_OpenFOAM" title="Recent changes in pages linked from this page [ctrl-alt-k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="http://openfoamwiki.net/index.php/Special:SpecialPages" title="List of all special pages [ctrl-alt-q]" accesskey="q">Special pages</a></li>
+				<li id="t-permalink"><a href="http://openfoamwiki.net/index.php?title=OpenFOAM_guide/Matrices_in_OpenFOAM&oldid=9964" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-smwbrowselink"><a href="http://openfoamwiki.net/index.php/Special:Browse/OpenFOAM_guide-2FMatrices_in_OpenFOAM" title="Special:Browse/OpenFOAM guide-2FMatrices in OpenFOAM">Browse properties</a></li>			</ul>
+		</div>
+	</div>
+	<div class="generated-sidebar portlet" id="p-coll-print_export">
+		<h5>Print/export</h5>
+		<div class="pBody">
+<ul id="collectionPortletList"><li id="coll-create_a_book"><a href="http://openfoamwiki.net/index.php?title=Special:Book&bookcmd=book_creator&referer=OpenFOAM+guide%2FMatrices+in+OpenFOAM" title="Create a book or page collection" rel="nofollow">Create a book</a></li><li id="coll-download-as-rl"><a href="http://openfoamwiki.net/index.php?title=Special:Book&bookcmd=render_article&arttitle=OpenFOAM+guide%2FMatrices+in+OpenFOAM&oldid=9964&writer=rl" title="Download a PDF version of this wiki page" rel="nofollow">Download as PDF</a></li><li id="t-print"><a href="http://openfoamwiki.net/index.php?title=OpenFOAM_guide/Matrices_in_OpenFOAM&printable=yes" title="Printable version of this page [ctrl-alt-p]" accesskey="p">Printable version</a></li></ul>		</div>
+	</div>
+</div><!-- end of the left (by default at least) column -->
+<div class="visualClear"></div>
+<div id="footer">
+	<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/poweredby_mediawiki_88x31.png" height="31" width="88" alt="Powered by MediaWiki"></a></div>
+	<div id="f-copyrightico"><a href="http://www.gnu.org/copyleft/fdl.html"><img src="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/gnu-fdl.png" alt="GNU Free Documentation License 1.2" width="88" height="31"></a></div>
+	<ul id="f-list">
+		<li id="lastmod"> This page was last modified on 30 June 2010, at 19:24.</li>
+		<li id="viewcount">This page has been accessed 1,868 times.</li>
+		<li id="copyright">Content is available under <a href="http://www.gnu.org/copyleft/fdl.html" class="external ">GNU Free Documentation License 1.2</a>.</li>
+		<li id="privacy"><a href="http://openfoamwiki.net/index.php/OpenFOAMWiki:Privacy_policy" title="OpenFOAMWiki:Privacy policy">Privacy policy</a></li>
+		<li id="about"><a href="http://openfoamwiki.net/index.php/OpenFOAMWiki:About" title="OpenFOAMWiki:About">About OpenFOAMWiki</a></li>
+		<li id="disclaimer"><a href="http://openfoamwiki.net/index.php/OpenFOAMWiki:General_disclaimer" title="OpenFOAMWiki:General disclaimer">Disclaimers</a></li>
+	</ul>
+</div>
+</div>
+
+<script>if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Piwik -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://openfoamwiki.net/piwik/" : "http://openfoamwiki.net/piwik/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+/* ]]> */
+</script><script src="./OpenFOAM guide Matrices in OpenFOAM - OpenFOAMWiki_files/piwik.js" type="text/javascript"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+piwikTracker.setDocumentTitle("OpenFOAM guide/Matrices in OpenFOAM");
+piwikTracker.setIgnoreClasses("image");
+
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+/* ]]> */
+</script><noscript>&lt;p&gt;&lt;img src="http://openfoamwiki.net/piwik/piwik.php?idsite=1" style="border:0" alt=""/&gt;&lt;/p&gt;</noscript>
+<!-- /Piwik --><!-- Served in 0.426 secs. -->
+</body></html>

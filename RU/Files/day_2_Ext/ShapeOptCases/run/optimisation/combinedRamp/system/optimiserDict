@@ -1,0 +1,101 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.0                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+    class           dictionary;
+    object          optimiserDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+objectiveFunction
+{
+    // Type of objective function
+    type       shapeObjective;
+
+    // Choice of flow model
+    flowModel
+    {
+        type    icoFlow;
+    }
+
+    // Objective to be minimised
+    objective
+    {
+        type  combinedObjective;
+
+        objectives
+        (
+            {
+                type    minPatchRange;
+
+                field   p;
+                patches ( bottomRamp );
+            }
+
+            {
+                type    minTotalPressureDrop;
+
+                p       p;
+                U       U;
+
+                inlet   inlet;
+                outlet  outlet;
+                rhoRef  rhoRef [1 -3 0 0 0 0 0] 1000;
+            }
+
+            {
+                type    minPatchRange;
+
+                field   phi;
+                patches ( outlet );
+            }
+        );
+
+        weights (10 3.3 12);
+    }
+
+    // List of point parameters, where each direction is treated as
+    // a separate degree of freedom
+    pointParametrisation
+    ();
+
+    // Lists groups of points to be moved together.
+    // Size of global parametrisation equals to the size of outer list
+    lineParametrisation
+    (
+        (0 3)
+        (1 4)
+        (2 5)
+    );
+
+    maxIter   200;
+    objectiveTol 0.001;
+    objectiveSpan 20;
+
+    // Where to save results of configurations
+    configOffset   1000;
+}
+
+
+simplex
+{
+    // Initialisation of simplex optimiser
+    startPoint (0.2 0.2 0.2);
+    lambda (0.5 0.5 0.5);
+
+    // Optimiser controls
+    maxIter  50;
+    tolerance 0.01;
+}
+
+
+// ************************************************************************* //

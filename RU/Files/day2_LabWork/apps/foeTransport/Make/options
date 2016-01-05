@@ -1,0 +1,8 @@
+myLibInc = ../../libMyLib/lnInclude
+
+EXE_INC = \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(myLibInc)
+
+EXE_LIBS = -lfiniteVolume -L$(FOAM_USER_LIBBIN) -lmyLib
+

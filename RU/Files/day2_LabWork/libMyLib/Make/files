@@ -1,0 +1,7 @@
+conductiveHeatFlux/conductiveHeatFluxFvPatchScalarField.C
+convectiveHeatFlux/convectiveHeatFluxFvPatchFields.C
+fourier/fourierFvPatchScalarField.C
+fourthOrderTimeScheme/fourthOrderDdt.C
+
+LIB = $(FOAM_USER_LIBBIN)/libmyLib
+

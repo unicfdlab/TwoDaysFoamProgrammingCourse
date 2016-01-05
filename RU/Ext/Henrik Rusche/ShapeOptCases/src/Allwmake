@@ -1,0 +1,8 @@
+#!/bin/sh
+set -x
+
+wmake libso shapeOptimisation
+
+wmake rbfMorphMesh
+wmake simplexTest
+wmake optimiserFoam

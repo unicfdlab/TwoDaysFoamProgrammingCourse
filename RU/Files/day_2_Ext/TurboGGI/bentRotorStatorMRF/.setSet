@@ -1,0 +1,6 @@
+cellSet rotatingCells new boxToCell (0.039 -10 -10) (0.725 10 10)
+quit
+cellSet rotatingCells new boxToCell (0.039 -10 -10) (0.0725 10 10)
+quit
+cellSet rotatingCells new boxToCell (0.039 -10 -10) (0.0722 10 10)
+quit

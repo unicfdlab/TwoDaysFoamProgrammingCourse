@@ -1,0 +1,59 @@
+.TH avi2swf "1" "February 2006" "avi2swf" "swftools"
+.SH NAME
+avi2swf - Converts an avi video file to SWF.
+
+.SH Synopsis
+.B avi2swf file.avi [-o output.swf]
+
+.SH DESCRIPTION
+Converts an AVI video file to SWF.
+.PP
+From Version 6 on, SWF supports h.263 video rendering. This tool generates,
+among some other formats (see below), SWF movies which contain such h.263 video 
+from AVI files.
+
+.SH OPTIONS
+.TP
+\fB\-h\fR, \fB\-\-help\fR 
+    Print help and exit
+.TP
+\fB\-o\fR, \fB\-\-output\fR filename
+    Specify output filename
+.TP
+\fB\-A\fR, \fB\-\-adjust\fR seconds
+    Audio adjust: Shift sound -seconds to the future or +seconds into the past.
+.TP
+\fB\-n\fR, \fB\-\-num\fR frames
+    Number of frames to encode
+.TP
+\fB\-m\fR, \fB\-\-mp3-bitrate\fR \fIkbps\fR
+    Set the mp3 bitrate to encode audio with
+.TP
+\fB\-r\fR, \fB\-\-mp3-samplerate\fR \fIhz\fR
+    Set the mp3 samplerate to encode audio with (default: 11025)
+.TP
+\fB\-s\fR, \fB\-\-scale\fR \fIval\fR
+    Scale down to factor \fIval\fR. (in %, e.g. 100 = original size)
+.TP
+\fB\-S\fR, \fB\-\-skipframes\fR \fInum\fR
+    Skip \fInum\fR frames before starting the conversion.
+.TP
+\fB\-p\fR, \fB\-\-flip\fR 
+    Turn movie upside down
+.TP
+\fB\-q\fR, \fB\-\-quality\fR \fIval\fR
+    Set the quality to \fIval\fR. (0-100, 0=worst, 100=best, default:80)
+.TP
+\fB\-k\fR, \fB\-\-keyframe\fR 
+    Set the number of intermediate frames between keyframes.
+.TP
+\fB\-x\fR, \fB\-\-extragood\fR 
+    Enable some \fIvery\fR expensive compression strategies. You may
+    want to let this run overnight.
+.TP
+\fB\-T\fR, \fB\-\-flashversion\fR \fIn\fR
+    Set output flash version to \fIn\fR. Notice: H.263 compression will only be
+    used for n >= 6.
+.TP
+\fB\-V\fR, \fB\-\-version\fR 
+    Print program version and exit

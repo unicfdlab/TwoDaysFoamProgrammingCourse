@@ -1,0 +1,87 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.3                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+// Field Dictionary
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+    class           volScalarField;
+    object          T;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 300;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           $internalField;
+    }
+
+    outlet
+    {
+//         type            zeroGradient;
+
+        type            waveTransmissive;
+        phi             phi;
+        rho             rho;
+        psi             psi;
+        U               U;
+        gamma           1.4;
+        inletOutlet     true;
+        correctSupercritical false;
+        lInf            0.0;
+        fieldInf        300;
+        value           $internalField;
+    }
+
+    bladeRotor
+    {
+        type            zeroGradient;
+    }
+
+    shaftRotor
+    {
+        type            zeroGradient;
+    }
+
+    shroudRotor
+    {
+        type            zeroGradient;
+    }
+
+    bladeStator
+    {
+        type            zeroGradient;
+    }
+
+    shaftStator
+    {
+        type            zeroGradient;
+    }
+
+    shroudStator
+    {
+        type            zeroGradient;
+    }
+
+    frontAndBack
+    {
+        type            cyclic;
+    }
+}
+
+
+// ************************************************************************* //

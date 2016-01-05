@@ -1,0 +1,3 @@
+simplexTest.C
+
+EXE = $(FOAM_APPBIN)/simplexTest

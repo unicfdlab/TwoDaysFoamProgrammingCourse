@@ -1,0 +1,6 @@
+faceSet inside new patchToFace insideSlider
+faceSet outside new patchToFace outsideSlider
+quote
+faceSet insideZone new patchToFace insideSlider
+faceSet outsideZone new patchToFace outsideSlider
+quit

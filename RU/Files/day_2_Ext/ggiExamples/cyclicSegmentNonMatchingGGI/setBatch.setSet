@@ -1,0 +1,3 @@
+faceSet bottomZone new patchToFace bottom
+faceSet topZone new patchToFace top
+quit

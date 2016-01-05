@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/tools/unicfdc2/svn/!svn/ver/53/trunk/data/Ext/Henrik%20Rusche/ShapeOptCases/run/geometry/sphereBoxTet/constant/polyMesh
+END
+faces.gz
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/tools/unicfdc2/svn/!svn/ver/53/trunk/data/Ext/Henrik%20Rusche/ShapeOptCases/run/geometry/sphereBoxTet/constant/polyMesh/faces.gz
+END
+neighbour.gz
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/tools/unicfdc2/svn/!svn/ver/53/trunk/data/Ext/Henrik%20Rusche/ShapeOptCases/run/geometry/sphereBoxTet/constant/polyMesh/neighbour.gz
+END
+boundary
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/tools/unicfdc2/svn/!svn/ver/53/trunk/data/Ext/Henrik%20Rusche/ShapeOptCases/run/geometry/sphereBoxTet/constant/polyMesh/boundary
+END
+owner.gz
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/tools/unicfdc2/svn/!svn/ver/53/trunk/data/Ext/Henrik%20Rusche/ShapeOptCases/run/geometry/sphereBoxTet/constant/polyMesh/owner.gz
+END
+points.gz
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/tools/unicfdc2/svn/!svn/ver/53/trunk/data/Ext/Henrik%20Rusche/ShapeOptCases/run/geometry/sphereBoxTet/constant/polyMesh/points.gz
+END

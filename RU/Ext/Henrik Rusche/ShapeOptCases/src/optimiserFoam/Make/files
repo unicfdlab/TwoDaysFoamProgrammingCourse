@@ -1,0 +1,3 @@
+optimiserFoam.C
+
+EXE = $(FOAM_APPBIN)/optimiserFoam

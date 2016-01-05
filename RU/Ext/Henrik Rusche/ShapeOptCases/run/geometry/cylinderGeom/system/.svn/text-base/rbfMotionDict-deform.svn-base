@@ -1,0 +1,125 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.0                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+    class           dictionary;
+    object          rbfMotionDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+movingPatches
+(
+    cylinder
+);
+
+controlPoints
+(
+    // Moving points
+
+    // Back plane
+    (-0.02 -0.02 -0.005)
+    ( 0.02 -0.02 -0.005)
+
+    (-0.02  0.02 -0.005)
+    ( 0.02  0.02 -0.005)
+
+    // Front plane
+    (-0.02 -0.02 0.005)
+    ( 0.02 -0.02 0.005)
+
+    (-0.02  0.02 0.005)
+    ( 0.02  0.02 0.005)
+
+    // Box points
+
+    // Back plane
+    (-0.03 -0.03 -0.005)
+    ( 0.2  -0.03 -0.005)
+
+    (-0.03  0.03 -0.005)
+    ( 0.2   0.03 -0.005)
+
+    // Front plane
+    (-0.03 -0.03 0.005)
+    ( 0.2  -0.03 0.005)
+
+    (-0.03  0.03 0.005)
+    ( 0.2   0.03 0.005)
+
+);
+
+
+motionBounds
+(
+    // Moving points
+
+    // Back plane
+    (( 0 0 0) (-0.01 0.01 0))
+    (( 0 0 0) (0.02 0 0))
+    (( 0 0 0) (-0.01 -0.01 0))
+    (( 0 0 0) (0.02 0 0))
+
+    // Front plane
+    (( 0 0 0) (-0.01 0.01 0))
+    (( 0 0 0) (0.02 0 0))
+    (( 0 0 0) (-0.01 -0.01 0))
+    (( 0 0 0) (0.02 0 0))
+
+    // Box points
+
+    // Back plane
+    (( 0 0 0) (0 0 0))
+    (( 0 0 0) (0 0 0))
+    (( 0 0 0) (0 0 0))
+    (( 0 0 0) (0 0 0))
+
+    // Front plane
+    (( 0 0 0) (0 0 0))
+    (( 0 0 0) (0 0 0))
+    (( 0 0 0) (0 0 0))
+    (( 0 0 0) (0 0 0))
+);
+
+nSteps 5;
+
+interpolation
+{
+    RBF  IMQB;
+//     innerRadius 0.01;
+//     outerRadius 0.04;
+
+    innerRadius 0.005;
+    outerRadius 0.05;
+    polynomials true;
+
+    W2Coeffs
+    {
+        radius     1.0;
+    }
+    TPSCoeffs
+    {
+        radius     5.0;
+    }
+    GaussCoeffs
+    {
+        radius        0.1;
+    }
+    IMQBCoeffs
+    {
+        radius        0.01;
+    }
+}
+
+
+
+
+// ************************************************************************* //

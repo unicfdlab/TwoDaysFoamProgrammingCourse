@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/tools/unicfdc2/svn/!svn/ver/53/trunk/data/Ext/Henrik%20Rusche/ShapeOptCases/run/basic/paraboloidTest/system
+END
+optimiserDict
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/tools/unicfdc2/svn/!svn/ver/53/trunk/data/Ext/Henrik%20Rusche/ShapeOptCases/run/basic/paraboloidTest/system/optimiserDict
+END
+fvSchemes
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/tools/unicfdc2/svn/!svn/ver/53/trunk/data/Ext/Henrik%20Rusche/ShapeOptCases/run/basic/paraboloidTest/system/fvSchemes
+END
+controlDict
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/tools/unicfdc2/svn/!svn/ver/53/trunk/data/Ext/Henrik%20Rusche/ShapeOptCases/run/basic/paraboloidTest/system/controlDict
+END
+fvSolution
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/tools/unicfdc2/svn/!svn/ver/53/trunk/data/Ext/Henrik%20Rusche/ShapeOptCases/run/basic/paraboloidTest/system/fvSolution
+END

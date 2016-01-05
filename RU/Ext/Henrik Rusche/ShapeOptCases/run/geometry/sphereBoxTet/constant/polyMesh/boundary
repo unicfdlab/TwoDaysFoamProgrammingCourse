@@ -1,0 +1,59 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    location    "constant/polyMesh";
+    class       polyBoundaryMesh;
+    object      boundary;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+7
+(
+    box-1
+    {
+        type patch;
+        nFaces 530;
+        startFace 121836;
+    }
+    box-2
+    {
+        type patch;
+        nFaces 524;
+        startFace 122366;
+    }
+    box-3
+    {
+        type patch;
+        nFaces 524;
+        startFace 122890;
+    }
+    box-4
+    {
+        type patch;
+        nFaces 524;
+        startFace 123414;
+    }
+    box-5
+    {
+        type patch;
+        nFaces 524;
+        startFace 123938;
+    }
+    box-6
+    {
+        type patch;
+        nFaces 530;
+        startFace 124462;
+    }
+    sphere
+    {
+        type wall;
+        nFaces 784;
+        startFace 124992;
+    }
+)
+
+
+// ************************************************************************* //

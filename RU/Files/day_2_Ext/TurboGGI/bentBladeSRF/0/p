@@ -1,0 +1,83 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.3                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+// Field Dictionary
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+    class           volScalarField;
+    object          p;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   uniform 101325;
+
+boundaryField
+{
+    inlet
+    {
+        type         zeroGradient;
+
+//         type            waveTransmissiveInlet;
+//         phi             phi;
+//         rho             rho;
+//         psi             psi;
+//         U               Urel;
+//         gamma           1.4;
+//         inletOutlet     false;
+//         correctSupercritical false;
+//         lInf            0.0;
+//         fieldInf        101325;
+//         value           uniform 101325;
+    }
+
+    outlet
+    {
+//         type            fixedValue;
+
+        type            waveTransmissive;
+        phi             phi;
+        rho             rho;
+        psi             psi;
+        U               Urel;
+        gamma           1.4;
+        inletOutlet     false;
+        correctSupercritical true;
+        lInf            0.1;
+        fieldInf        101325;
+        value           uniform 101325;
+    }
+
+    blade
+    {
+        type            zeroGradient;
+    }
+
+    shaft
+    {
+        type            zeroGradient;
+    }
+
+    shroud
+    {
+        type            zeroGradient;
+    }
+
+    frontAndBack
+    {
+        type            cyclic;
+    }
+}
+
+
+// ************************************************************************* //

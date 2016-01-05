@@ -1,0 +1,101 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.3                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+    class           dictionary;
+    object          fvSolution;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+    pcorr
+    {
+        solver          amgSolver;
+        cycle           W-cycle;
+        policy          AAMG;
+        nPreSweeps      0;
+        nPostSweeps     2;
+        groupSize       4;
+        minCoarseEqns   20;
+        nMaxLevels      100;
+        scale           on;
+        smoother        ILU;
+
+        minIter           0;
+        maxIter           100;
+        tolerance         1e-5;
+        relTol            0.0;
+    }
+
+    p
+    {
+        solver          amgSolver;
+        cycle           W-cycle;
+        policy          AAMG;
+        nPreSweeps      0;
+        nPostSweeps     2;
+        groupSize       4;
+        minCoarseEqns   20;
+        nMaxLevels      100;
+
+        scale           on;
+        smoother        ILU;
+
+        minIter           0;
+        maxIter           100;
+        tolerance         1e-5;
+        relTol            0.01;
+    }
+
+    pFinal
+    {
+        solver          amgSolver;
+        cycle           W-cycle;
+        policy          AAMG;
+        nPreSweeps      0;
+        nPostSweeps     2;
+        groupSize       4;
+        minCoarseEqns   20;
+        nMaxLevels      100;
+
+        scale           on;
+        smoother        ILU;
+
+        minIter           0;
+        maxIter           100;
+        tolerance         1e-5;
+        relTol            0.0;
+    };
+
+    U
+    {
+        solver           BiCGStab;
+        preconditioner   DILU;
+
+        minIter          0;
+        maxIter          1000;
+        tolerance        1e-07;
+        relTol           0;
+    };
+}
+
+PISO
+{
+    nCorrectors     4;
+    nNonOrthogonalCorrectors 1;
+    pRefCell        0;
+    pRefValue       0;
+}
+
+
+// ************************************************************************* //

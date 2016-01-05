@@ -1,0 +1,12 @@
+EXE_INC = \
+    -I../shapeOptimisation/lnInclude \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(LIB_SRC)/dynamicMesh/lnInclude \
+    -I$(LIB_SRC)/meshTools/lnInclude
+
+EXE_LIBS = \
+    -lshapeOptimisation \
+    -lfiniteVolume \
+    -ldynamicMesh \
+    -lmeshTools \
+    -llduSolvers
